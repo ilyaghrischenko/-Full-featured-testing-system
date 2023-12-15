@@ -7,8 +7,7 @@
 using namespace std;
 
 typedef map<string, vector<int>> dictionary;
-typedef map<string, int> tasks;
-typedef map<string, char> mas;
+typedef map<string, string> tasks;
 
 class User {
 protected:
@@ -113,7 +112,7 @@ public:
 			address = x.address;
 			phone_number = x.phone_number;
 		}
-		else return *this;
+		return *this;
 	}
 
 	inline bool GetIsRegistered() const
@@ -179,24 +178,26 @@ public:
 		cout << endl;
 	}
 
-	void MathTest()
+	void MathTest(const string& path)
 	{
 		if (!isRegistered) Registration();
 		cout << "Тест з математики(питань - 6, максимальний бал - 12):\n";
 
+		fstream file(path, ios::in);
 		tasks arr;
-		for (int i = 0; i < 6; ++i) {
-			int x = rand() % 15 - 5;
-			int y = rand() % 10 - 5;
-			string str_x = to_string(x);
-			string str_y = to_string(y);
-			arr.insert({ str_x + " * " + str_y, x * y });
+
+		string key;
+		string val;
+		while (getline(file, key).good()) {
+			getline(file, val);
+			arr.insert({ key,val });
 		}
+		file.close();
 
 		int j = 0;
 		int kilk_prav = 0;
 		for (auto i : arr) {
-			int answer = 0;
+			string answer;
 
 			cout << ++j << ") " << i.first << endl << "Ваша відповідь: ";
 			cin >> answer;
@@ -211,25 +212,29 @@ public:
 		int grade = kilk_prav * 2;
 		auto i = grades.find("Математика");
 		i->second.push_back(grade);
+
+		cout << "Ваш бал: " << grade << endl << "К-сть правильних відповідей: " << kilk_prav << "/6" << endl << "Відсоток правильних відповідей: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
-	void UkrTest()
+	void UkrTest(const string& path)
 	{
 		if (!isRegistered) Registration();
 		cout << "Тест з української мови(питань - 6, максимальний бал - 12):\n";
 
-		mas arr;
-		arr.insert({ "а)силует/b)силуєт",'a'});
-		arr.insert({ "а)простерати/b)простирати",'b'});
-		arr.insert({ "а)диригент/b)деригент",'a'});
-		arr.insert({ "а)лимон/b)лемон",'a'});
-		arr.insert({ "а)справедливий/b)справидливий",'a' });
-		arr.insert({ "а)делигат/b)делегат",'b' });
+		fstream file(path, ios::in);
+		tasks arr;
+		string key;
+		string val;
+		while (getline(file, key).good()) {
+			getline(file, val);
+			arr.insert({ key,val });
+		}
+		file.close();
 
 		int j = 0;
 		int kilk_prav = 0;
 		for (auto i : arr) {
-			char text;
-			cout << ++j << ") " << i.first << "?" << endl << "Ваша відповідь(a/b): ";
+			string text;
+			cout << ++j << ") " << i.first << endl << "Ваша відповідь(a/b): ";
 			cin >> text;
 
 			if (text == i.second) {
@@ -242,24 +247,28 @@ public:
 		int grade = kilk_prav * 2;
 		auto i = grades.find("Українська мова");
 		i->second.push_back(grade);
+
+		cout << "Ваш бал: " << grade << endl << "К-сть правильних відповідей: " << kilk_prav << "/6" << endl << "Відсоток правильних відповідей: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
-	void GeoTest()
+	void GeoTest(const string& path)
 	{
 		if (!isRegistered) Registration();
 		cout << "Тест з географії(питань - 6, максимальний бал - 12):\n";
 
-		mas arr;
-		arr.insert({ "Найбагатша країна світу? a)Польща/b)США",'b' });
-		arr.insert({ "Найменша країна в світі? a)Естонія/b)Ватикан",'b' });
-		arr.insert({ "К-сть материків? a)7/b)6",'a' });
-		arr.insert({ "Яка офіційна валюта Індії? a)євро/b)рупій",'b' });
-		arr.insert({ "Зі скількох штатів складаються Сполучені Штати? a)50/b)48",'a' });
-		arr.insert({ "Яка найвища споруда, створена людиною? a)Ейфелева вежа/b)Бурдж Халіфа",'b' });
+		fstream file(path, ios::in);
+		tasks arr;
+		string key;
+		string val;
+		while (getline(file, key).good()) {
+			getline(file, val);
+			arr.insert({ key,val });
+		}
+		file.close();
 
 		int j = 0;
 		int kilk_prav = 0;
 		for (auto i : arr) {
-			char answer;
+			string answer;
 			cout << ++j << ") " << i.first << endl << "Ваша відповідь(a/b): ";
 			cin >> answer;
 
@@ -268,11 +277,13 @@ public:
 				++kilk_prav;
 			}
 			else cout << "Відповідь не правильна!\n\n";
-
-			int grade = kilk_prav * 2;
-			auto i = grades.find("Географія");
-			i->second.push_back(grade);
 		}
+
+		int grade = kilk_prav * 2;
+		auto i = grades.find("Географія");
+		i->second.push_back(grade);
+
+		cout << "Ваш бал: " << grade << endl << "К-сть правильних відповідей: " << kilk_prav << "/6" << endl << "Відсоток правильних відповідей: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
 
 	friend istream& operator>>(istream& s, Guest& x)
@@ -320,84 +331,76 @@ public:
 	}
 };
 
-class Admin :public User {
-private:
-	vector<Guest> users;
-	size_t size;
-	string path;
-public:
-	Admin() :size(3), path("NoPath"), users(vector<Guest>())
-	{
-		fstream file(path, ios::in);
-
-		file >> *this;
-
-		file.close();
-	}
-	Admin(const string& path) :path(path), size(3), users(vector<Guest>())
-	{
-		fstream file(path, ios::in);
-
-		file >> *this;
-
-		file.close();
-	}
-
-	inline size_t GetSize() const
-	{
-		return size;
-	}
-
-	inline void show() const
-	{
-		for (int i = 0; i < size; ++i) {
-			cout << ++i << ")\n" << users[i];
-		}
-	}
-
-	friend fstream& operator>>(fstream& s, Admin& obj) {
-		string text;
-		while (getline(s, text)) {
-			Guest newGuest;
-			newGuest.SetPib(text);
-
-			getline(s, text);
-			newGuest.SetAddress(text);
-
-			getline(s, text);
-			newGuest.SetPhoneNumber(text);
-
-			getline(s, text);
-			newGuest.SetLogin(text);
-
-			getline(s, text);
-			newGuest.SetPassword(text);
-
-			int key = 0;
-			s >> key;
-			newGuest.SetEncryptionKey(key);
-			s.ignore();
-
-			while (getline(s, text)) {
-				if (text == ";") {
-					break;
-				}
-				else {
-					string subject = text;
-					getline(s, text);
-					int grade = stoi(text);
-					newGuest.GetGrades()[subject].push_back(grade);
-				}
-			}
-
-			obj.users.push_back(newGuest);
-		}
-
-		obj.size = obj.users.size();
-
-		return s;
-	}
-};
+//class Admin :public User {
+//private:
+//	vector<Guest> users;
+//	string path;
+//public:
+//	Admin() :path("NoPath"), users(vector<Guest>())
+//	{
+//		fstream file(path, ios::in);
+//
+//		file >> *this;
+//
+//		file.close();
+//	}
+//	Admin(const string& path) :path(path), users(vector<Guest>())
+//	{
+//		fstream file(path, ios::in);
+//
+//		file >> *this;
+//
+//		file.close();
+//	}
+//
+//	inline void show() const
+//	{
+//		for (int i = 0; i < users.size(); ++i) {
+//			cout << ++i << ")\n" << users[i];
+//		}
+//	}
+//
+//	friend fstream& operator>>(fstream& s, Admin& obj) {
+//		string text;
+//		while (getline(s, text)) {
+//			Guest newGuest;
+//			newGuest.SetPib(text);
+//
+//			getline(s, text);
+//			newGuest.SetAddress(text);
+//
+//			getline(s, text);
+//			newGuest.SetPhoneNumber(text);
+//
+//			getline(s, text);
+//			newGuest.SetLogin(text);
+//
+//			getline(s, text);
+//			newGuest.SetPassword(text);
+//
+//			int key = 0;
+//			s >> key;
+//			newGuest.SetEncryptionKey(key);
+//			s.ignore();
+//
+//			while (getline(s, text)) {
+//				if (text == ";") {
+//					break;
+//				}
+//				else {
+//					string subject = text;
+//					getline(s, text);
+//					int grade = stoi(text);
+//					newGuest.GetGrades()[subject].push_back(grade);
+//				}
+//			}
+//
+//			obj.users.push_back(newGuest);
+//		}
+//
+//		return s;
+//	}
+//};
 
 template<typename T>
 void Save(const string& path, const T& obj)
@@ -414,10 +417,10 @@ int main()
 	srand((unsigned)time(NULL));
 	
 	Guest Illya("pib", "address", "+380970878346");
-	Save<Guest>("reg_obj.txt", Illya);
 
-	Admin ILLYA("reg_obj.txt");
-	ILLYA.show();
+	Illya.MathTest("..\\Tests\\Mathematics\\test1.txt");
+
+	Save<Guest>("..\\reg_obj.txt", Illya);
 
 	cout << endl;
 	system("pause");
