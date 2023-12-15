@@ -331,76 +331,47 @@ public:
 	}
 };
 
-//class Admin :public User {
-//private:
-//	vector<Guest> users;
-//	string path;
-//public:
-//	Admin() :path("NoPath"), users(vector<Guest>())
-//	{
-//		fstream file(path, ios::in);
-//
-//		file >> *this;
-//
-//		file.close();
-//	}
-//	Admin(const string& path) :path(path), users(vector<Guest>())
-//	{
-//		fstream file(path, ios::in);
-//
-//		file >> *this;
-//
-//		file.close();
-//	}
-//
-//	inline void show() const
-//	{
-//		for (int i = 0; i < users.size(); ++i) {
-//			cout << ++i << ")\n" << users[i];
-//		}
-//	}
-//
-//	friend fstream& operator>>(fstream& s, Admin& obj) {
-//		string text;
-//		while (getline(s, text)) {
-//			Guest newGuest;
-//			newGuest.SetPib(text);
-//
-//			getline(s, text);
-//			newGuest.SetAddress(text);
-//
-//			getline(s, text);
-//			newGuest.SetPhoneNumber(text);
-//
-//			getline(s, text);
-//			newGuest.SetLogin(text);
-//
-//			getline(s, text);
-//			newGuest.SetPassword(text);
-//
-//			int key = 0;
-//			s >> key;
-//			newGuest.SetEncryptionKey(key);
-//			s.ignore();
-//
-//			while (getline(s, text)) {
-//				if (text == ";") {
-//					break;
-//				}
-//				else {
-//					string subject = text;
-//					getline(s, text);
-//					int grade = stoi(text);
-//					newGuest.GetGrades()[subject].push_back(grade);
-//				}
-//			}
-//
-//			obj.users.push_back(newGuest);
-//		}
-//
-//		return s;
-//	}
-//};
+class Admin :public User {
+private:
+	vector<Guest> users;
+public:
+	Admin() :users({}) { Registration(); }
+	Admin(const string& path)
+	{
+		Registration();
+
+		fstream file(path, ios::in);
+		string text;
+		while (getline(file, text).good()) {
+			Guest newGuest;
+			newGuest.SetPib(text);
+
+			getline(file, text);
+			newGuest.SetAddress(text);
+			
+			getline(file, text);
+			newGuest.SetPhoneNumber(text);
+
+			getline(file, text);
+			newGuest.SetLogin(text);
+
+			getline(file, text);
+			newGuest.SetPassword(text);
+
+			getline(file, text);
+			//newGuest.SetEncryptionKey(text);
+
+			file.close();
+		}
+	}
+
+	void show() const
+	{
+		for (int i = 0; i < users.size(); ++i) {
+			cout << users[i];
+		}
+	}
+};
 
 template<typename T>
 void Save(const string& path, const T& obj)
@@ -416,11 +387,8 @@ int main()
 	setlocale(0, "");
 	srand((unsigned)time(NULL));
 	
-	Guest Illya("pib", "address", "+380970878346");
-
-	Illya.MathTest("..\\Tests\\Mathematics\\test1.txt");
-
-	Save<Guest>("..\\reg_obj.txt", Illya);
+	Admin Dima("..\\reg_obj.txt");
+	Dima.show();
 
 	cout << endl;
 	system("pause");

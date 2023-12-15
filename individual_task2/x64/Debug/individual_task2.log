@@ -1,2 +1,61 @@
 ﻿  individual_task2.cpp
-  individual_task2.vcxproj -> C:\github\Full-featured-testing-system\individual_task2\x64\Debug\individual_task2.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(680,47): error C2280: 'Guest::Guest(const Guest &)': attempting to reference a deleted function
+C:\github\Full-featured-testing-system\individual_task2\individual_task2.cpp(332,1): message : compiler has generated 'Guest::Guest' here
+C:\github\Full-featured-testing-system\individual_task2\individual_task2.cpp(332,1): message : 'Guest::Guest(const Guest &)': function was implicitly deleted because 'Guest' has a user-defined move constructor
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(1662,1): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Elem&>(_Alloc &,_Objty *const ,const _Elem &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Guest>,
+              _Ty=Guest,
+              _Elem=Guest,
+              _Objty=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(1663,44): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Elem&>(_Alloc &,_Objty *const ,const _Elem &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Guest>,
+              _Ty=Guest,
+              _Elem=Guest,
+              _Objty=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(1680,71): message : see reference to function template instantiation 'void std::_Uninitialized_backout_al<std::allocator<Guest>>::_Emplace_back<const _Elem&>(const _Elem &)' being compiled
+          with
+          [
+              _Elem=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(1717,31): message : see reference to function template instantiation 'void std::_Uninitialized_backout_al<std::allocator<Guest>>::_Emplace_back<const _Elem&>(const _Elem &)' being compiled
+          with
+          [
+              _Elem=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(2119,1): message : see reference to function template instantiation 'Guest *std::_Uninitialized_copy<_Ty,_Ty,std::allocator<Guest>>(_InIt,_Se,Guest *,_Alloc &)' being compiled
+          with
+          [
+              _Ty=const Guest *,
+              _InIt=const Guest *,
+              _Se=const Guest *,
+              _Alloc=std::allocator<Guest>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(721,1): message : see reference to function template instantiation 'void std::vector<Guest,std::allocator<Guest>>::_Construct_n<const _Elem*,const _Elem*>(const unsigned __int64,const _Elem *&&,const _Elem *&&)' being compiled
+          with
+          [
+              _Elem=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(721,21): message : see reference to function template instantiation 'void std::vector<Guest,std::allocator<Guest>>::_Construct_n<const _Elem*,const _Elem*>(const unsigned __int64,const _Elem *&&,const _Elem *&&)' being compiled
+          with
+          [
+              _Elem=Guest
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\vector(719,1): message : while compiling class template member function 'std::vector<Guest,std::allocator<Guest>>::vector(std::initializer_list<_Ty>,const _Alloc &)'
+          with
+          [
+              _Ty=Guest,
+              _Alloc=std::allocator<Guest>
+          ]
+C:\github\Full-featured-testing-system\individual_task2\individual_task2.cpp(338,16): message : see reference to function template instantiation 'std::vector<Guest,std::allocator<Guest>>::vector(std::initializer_list<_Ty>,const _Alloc &)' being compiled
+          with
+          [
+              _Ty=Guest,
+              _Alloc=std::allocator<Guest>
+          ]
+C:\github\Full-featured-testing-system\individual_task2\individual_task2.cpp(336,16): message : see reference to class template instantiation 'std::vector<Guest,std::allocator<Guest>>' being compiled
