@@ -23,7 +23,7 @@ public:
 		Registration();
 	}
 	Guest(const string& pib, const string& address, const string& phone_number, const dictionary& grades, const bool& isRegistered, const string& login, const string& password, const int& encryption_key)
-		:User(User(isRegistered, login, password, encryption_key)),
+		:User(isRegistered, login, password, encryption_key),
 		 pib(pib), address(address), phone_number(phone_number), grades(grades) {}
 	Guest(const string& pib, const string& address, const string& phone_number) : pib(pib), address(address), phone_number(phone_number)
 	{

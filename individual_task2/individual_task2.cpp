@@ -9,7 +9,7 @@ vector<Guest> GetArrFile(const string& path)
 {
 	vector<Guest> arr;
 
-
+	
 
 	return arr;
 }
