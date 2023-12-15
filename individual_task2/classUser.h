@@ -64,6 +64,8 @@ protected:
 	}
 public:
 	User() :isRegistered(false), login("NoLogin"), password("NoPassword"), encryption_key(3) {}
+	User(const bool& isRegistered, const string& login, const string& password, const int& encryption_key)
+		:isRegistered(isRegistered), login(login), password(password), encryption_key(encryption_key) {}
 
 	inline void SetLogin(const string& login)
 	{

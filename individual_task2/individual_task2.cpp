@@ -5,13 +5,13 @@
 #include <ctime>
 using namespace std;
 
-template<typename T>
-void Save(const string& path, const T& obj)
+vector<Guest> GetArrFile(const string& path)
 {
-	if (!obj.GetIsRegistered()) return;
-	fstream file(path, ios::out);
-	file << obj;
-	file.close();
+	vector<Guest> arr;
+
+
+
+	return arr;
 }
 
 int main()

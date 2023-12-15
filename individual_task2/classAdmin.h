@@ -48,10 +48,34 @@ public:
 		file.close();
 	}
 
+	inline vector<Guest> GetUsers() const
+	{
+		return users;
+	}
 	void show() const
 	{
 		for (int i = 0; i < users.size(); ++i) {
 			cout << users[i];
 		}
+	}
+
+	void AddUser()
+	{
+		Guest obj;
+		cin >> obj;
+		users.emplace_back(obj);
+		Save("..\\reg_obj.txt", obj);
+	}
+	void DelUser()
+	{
+
+	}
+
+	friend ostream& operator<<(ostream& s, const Admin& obj)
+	{
+		for (int i = 0; i < obj.users.size(); ++i) {
+			cout << obj.users[i];
+		}
+		return s;
 	}
 };
