@@ -113,6 +113,7 @@ public:
 			address = x.address;
 			phone_number = x.phone_number;
 		}
+		else return *this;
 	}
 
 	inline bool GetIsRegistered() const
