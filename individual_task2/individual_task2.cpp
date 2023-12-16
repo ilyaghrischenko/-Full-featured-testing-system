@@ -5,15 +5,6 @@
 #include <ctime>
 using namespace std;
 
-vector<Guest> GetArrFile(const string& path)
-{
-	vector<Guest> arr;
-
-	
-
-	return arr;
-}
-
 int main()
 {
 	setlocale(0, "");

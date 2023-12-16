@@ -67,6 +67,19 @@ public:
 	User(const bool& isRegistered, const string& login, const string& password, const int& encryption_key)
 		:isRegistered(isRegistered), login(login), password(password), encryption_key(encryption_key) {}
 
+	inline string GetLogin() const
+	{
+		return login;
+	}
+	inline string GetPassword() const
+	{
+		return password;
+	}
+	inline int GetEncryptionKey() const
+	{
+		return encryption_key;
+	}
+
 	inline void SetLogin(const string& login)
 	{
 		this->login = login;

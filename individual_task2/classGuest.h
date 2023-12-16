@@ -20,7 +20,6 @@ public:
 	Guest() :pib("NoPib"), address("NoAddress"), phone_number("NoPhoneNumber")
 	{
 		grades = { {"Mathematics",{}},{"Ukrainian",{}},{"Geography",{}} };
-		Registration();
 	}
 	Guest(const string& pib, const string& address, const string& phone_number, const dictionary& grades, const bool& isRegistered, const string& login, const string& password, const int& encryption_key)
 		:User(isRegistered, login, password, encryption_key),
@@ -28,7 +27,6 @@ public:
 	Guest(const string& pib, const string& address, const string& phone_number) : pib(pib), address(address), phone_number(phone_number)
 	{
 		grades = { {"Mathematics",{}},{"Ukrainian",{}},{"Geography",{}} };
-		Registration();
 	}
 	Guest(const Guest& x)
 	{
@@ -132,6 +130,8 @@ public:
 
 	void MathTest(const string& path)
 	{
+		if (!isRegistered) Registration();
+
 		cout << "Тест з математики(питань - 6, максимальний бал - 12):\n";
 
 		fstream file(path, ios::in);
@@ -168,6 +168,8 @@ public:
 	}
 	void UkrTest(const string& path)
 	{
+		if (!isRegistered) Registration();
+
 		cout << "Тест з української мови(питань - 6, максимальний бал - 12):\n";
 
 		fstream file(path, ios::in);
@@ -202,6 +204,8 @@ public:
 	}
 	void GeoTest(const string& path)
 	{
+		if (!isRegistered) Registration();
+
 		cout << "Тест з географії(питань - 6, максимальний бал - 12):\n";
 
 		fstream file(path, ios::in);
@@ -287,4 +291,11 @@ void Save(const string& path, const Guest& obj)
 	fstream file(path, ios::out);
 	file << obj;
 	file.close();
+}
+void DeEncrypt(Guest& obj, string& text)
+{
+	string login = text;
+	for (int i = 0; i < obj.GetLogin().size(); ++i) {
+		login[i] -= obj.GetEncryptionKey();
+	}
 }
