@@ -52,7 +52,7 @@ class Admin :public User {
 private:
 	vector<Guest> users;
 public:
-	Admin():users({}) { Registration(); }
+	Admin() :users({}) { Registration(); }
 	Admin(const string& path)
 	{
 		Registration();

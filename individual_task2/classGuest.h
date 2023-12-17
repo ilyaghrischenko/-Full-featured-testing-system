@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <vector>
 #include <map>
@@ -23,7 +23,7 @@ public:
 	}
 	Guest(const string& pib, const string& address, const string& phone_number, const dictionary& grades, const bool& isRegistered, const string& login, const string& password, const int& encryption_key)
 		:User(isRegistered, login, password, encryption_key),
-		 pib(pib), address(address), phone_number(phone_number), grades(grades) {}
+		pib(pib), address(address), phone_number(phone_number), grades(grades) {}
 	Guest(const string& pib, const string& address, const string& phone_number) : pib(pib), address(address), phone_number(phone_number)
 	{
 		grades = { {"Mathematics",{}},{"Ukrainian",{}},{"Geography",{}} };
@@ -104,18 +104,18 @@ public:
 
 	inline void input()
 	{
-		cout << "Ï²Á: ";
+		cout << "ÐŸÐ†Ð‘: ";
 		getline(cin, pib);
 
-		cout << "Àäðåñà: ";
+		cout << "ÐÐ´Ñ€ÐµÑÐ°: ";
 		getline(cin, address);
 
-		cout << "Íîìåð òåëåôîíó: ";
+		cout << "ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ: ";
 		getline(cin, phone_number);
 	}
 	void show() const
 	{
-		cout << "Ï²Á: " << pib << " | Àäðåñà: " << address << " | Íîìåð òåëåôîíó: " << phone_number << "\nÎö³íêè:\n";
+		cout << "ÐŸÐ†Ð‘: " << pib << " | ÐÐ´Ñ€ÐµÑÐ°: " << address << " | ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ: " << phone_number << "\nÐžÑ†Ñ–Ð½ÐºÐ¸:\n";
 
 		for (auto i : grades) {
 			cout << i.first << ": ";
@@ -132,7 +132,7 @@ public:
 	{
 		if (!isRegistered) Registration();
 
-		cout << "Òåñò ç ìàòåìàòèêè(ïèòàíü - 6, ìàêñèìàëüíèé áàë - 12):\n";
+		cout << "Ð¢ÐµÑÑ‚ Ð· Ð¼Ð°Ñ‚ÐµÐ¼Ð°Ñ‚Ð¸ÐºÐ¸(Ð¿Ð¸Ñ‚Ð°Ð½ÑŒ - 6, Ð¼Ð°ÐºÑ. Ð±Ð°Ð» - 12):\n";
 
 		fstream file(path, ios::in);
 		tasks arr;
@@ -150,27 +150,27 @@ public:
 		for (auto i : arr) {
 			string answer;
 
-			cout << ++j << ") " << i.first << endl << "Âàøà â³äïîâ³äü: ";
+			cout << ++j << ") " << i.first << endl << "Ð’Ð°ÑˆÐ° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ: ";
 			cin >> answer;
 
 			if (answer == i.second) {
-				cout << "Ïðàâèëüíà â³äïîâ³äü!\n\n";
+				cout << "ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ!\n\n";
 				++kilk_prav;
 			}
-			else cout << "Â³äïîâ³äü íå ïðàâèëüíà!\n\n";
+			else cout << "Ð’Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ Ð½Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð°!\n\n";
 		}
 
 		int grade = kilk_prav * 2;
-		auto i = grades.find("Ìàòåìàòèêà");
+		auto i = grades.find("Mathematics");
 		i->second.push_back(grade);
 
-		cout << "Âàø áàë: " << grade << endl << "Ê-ñòü ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav << "/6" << endl << "Â³äñîòîê ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav * 100 / 6 << "%" << endl;
+		cout << "Ð’Ð°Ñˆ Ð±Ð°Ð»: " << grade << endl << "Ðš-ÑÑ‚ÑŒ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav << "/6" << endl << "Ð’Ñ–Ð´ÑÐ¾Ñ‚Ð¾Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
 	void UkrTest(const string& path)
 	{
 		if (!isRegistered) Registration();
 
-		cout << "Òåñò ç óêðà¿íñüêî¿ ìîâè(ïèòàíü - 6, ìàêñèìàëüíèé áàë - 12):\n";
+		cout << "Ð¢ÐµÑÑ‚ Ð· ÑƒÐºÑ€Ð°Ñ—Ð½ÑÑŒÐºÐ¾Ñ— Ð¼Ð¾Ð²Ð¸(Ð¿Ð¸Ñ‚Ð°Ð½ÑŒ - 6, Ð¼Ð°ÐºÑ. Ð±Ð°Ð» - 12):\n";
 
 		fstream file(path, ios::in);
 		tasks arr;
@@ -186,27 +186,27 @@ public:
 		int kilk_prav = 0;
 		for (auto i : arr) {
 			string text;
-			cout << ++j << ") " << i.first << endl << "Âàøà â³äïîâ³äü(a/b): ";
+			cout << ++j << ") " << i.first << endl << "Ð’Ð°ÑˆÐ° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ(a/b): ";
 			cin >> text;
 
 			if (text == i.second) {
-				cout << "Ïðàâèëüíà â³äïîâ³äü!\n\n";
+				cout << "ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ!\n\n";
 				++kilk_prav;
 			}
-			else cout << "Â³äïîâ³äü íå ïðàâèëüíà!\n\n";
+			else cout << "Ð’Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ Ð½Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð°!\n\n";
 		}
 
 		int grade = kilk_prav * 2;
-		auto i = grades.find("Óêðà¿íñüêà ìîâà");
+		auto i = grades.find("Ukrainian");
 		i->second.push_back(grade);
 
-		cout << "Âàø áàë: " << grade << endl << "Ê-ñòü ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav << "/6" << endl << "Â³äñîòîê ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav * 100 / 6 << "%" << endl;
+		cout << "Ð’Ð°Ñˆ Ð±Ð°Ð»: " << grade << endl << "Ðš-ÑÑ‚ÑŒ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav << "/6" << endl << "Ð’Ñ–Ð´ÑÐ¾Ñ‚Ð¾Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
 	void GeoTest(const string& path)
 	{
 		if (!isRegistered) Registration();
 
-		cout << "Òåñò ç ãåîãðàô³¿(ïèòàíü - 6, ìàêñèìàëüíèé áàë - 12):\n";
+		cout << "Ð¢ÐµÑÑ‚ Ð· Ð³ÐµÐ¾Ð³Ñ€Ð°Ñ„Ñ–Ñ—(Ð¿Ð¸Ñ‚Ð°Ð½ÑŒ - 6, Ð¼Ð°ÐºÑ. Ð±Ð°Ð» - 12):\n";
 
 		fstream file(path, ios::in);
 		tasks arr;
@@ -222,39 +222,39 @@ public:
 		int kilk_prav = 0;
 		for (auto i : arr) {
 			string answer;
-			cout << ++j << ") " << i.first << endl << "Âàøà â³äïîâ³äü(a/b): ";
+			cout << ++j << ") " << i.first << endl << "Ð’Ð°ÑˆÐ° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ(a/b): ";
 			cin >> answer;
 
 			if (answer == i.second) {
-				cout << "Ïðàâèëüíà â³äïîâ³äü!\n\n";
+				cout << "ÐŸÑ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð° Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ!\n\n";
 				++kilk_prav;
 			}
-			else cout << "Â³äïîâ³äü íå ïðàâèëüíà!\n\n";
+			else cout << "Ð’Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÑŒ Ð½Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð°!\n\n";
 		}
 
 		int grade = kilk_prav * 2;
-		auto i = grades.find("Ãåîãðàô³ÿ");
+		auto i = grades.find("Geography");
 		i->second.push_back(grade);
 
-		cout << "Âàø áàë: " << grade << endl << "Ê-ñòü ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav << "/6" << endl << "Â³äñîòîê ïðàâèëüíèõ â³äïîâ³äåé: " << kilk_prav * 100 / 6 << "%" << endl;
+		cout << "Ð’Ð°Ñˆ Ð±Ð°Ð»: " << grade << endl << "Ðš-ÑÑ‚ÑŒ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav << "/6" << endl << "Ð’Ñ–Ð´ÑÐ¾Ñ‚Ð¾Ðº Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¸Ñ… Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´ÐµÐ¹: " << kilk_prav * 100 / 6 << "%" << endl;
 	}
 
 	friend istream& operator>>(istream& s, Guest& x)
 	{
-		cout << "Ï²Á: ";
+		cout << "ÐŸÐ†Ð‘: ";
 		getline(s, x.pib);
 
-		cout << "Àäðåñà: ";
+		cout << "ÐÐ´Ñ€ÐµÑÐ°: ";
 		getline(s, x.address);
 
-		cout << "Íîìåð òåëåôîíó: ";
+		cout << "ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ: ";
 		getline(s, x.phone_number);
 
 		return s;
 	}
 	friend ostream& operator<<(ostream& s, const Guest& x)
 	{
-		s << "Ï²Á: " << x.pib << " | Àäðåñà: " << x.address << " | Íîìåð òåëåôîíó: " << x.phone_number << "\nÎö³íêè:\n";
+		s << "ÐŸÐ†Ð‘: " << x.pib << " | ÐÐ´Ñ€ÐµÑÐ°: " << x.address << " | ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ñƒ: " << x.phone_number << "\nÐžÑ†Ñ–Ð½ÐºÐ¸:\n";
 
 		for (auto i : x.grades) {
 			s << i.first << ": ";
@@ -288,7 +288,7 @@ public:
 void Save(const string& path, const Guest& obj)
 {
 	if (!obj.GetIsRegistered()) return;
-	fstream file(path, ios::out);
+	fstream file(path, ios::app);
 	file << obj;
 	file.close();
 }

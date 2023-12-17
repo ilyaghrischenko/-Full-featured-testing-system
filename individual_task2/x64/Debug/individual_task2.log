@@ -1,2 +1,53 @@
 ﻿  individual_task2.cpp
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00CF' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00EE' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00EC' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00E8' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00EB' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00EA' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00E0' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00EF' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00F0' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00E2' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00E5' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00E4' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00ED' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00B3' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00C2' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00F2' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
+C:\github\Full-featured-testing-system\individual_task2\classUser.h(25,17): warning C4566: character represented by universal-character-name '\u00FC' cannot be represented in the current code page (1251)
+  (compiling source file 'individual_task2.cpp')
+  
   individual_task2.vcxproj -> C:\github\Full-featured-testing-system\individual_task2\x64\Debug\individual_task2.exe

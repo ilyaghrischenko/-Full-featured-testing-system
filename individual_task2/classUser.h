@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include <string>
 using namespace std;
@@ -22,7 +22,7 @@ protected:
 				else if (text[i] == toupper(text[i])) ++kilk_upper;
 			}
 			if (kilk_upper >= 1 && kilk_numbers >= 3) isAccepted = true;
-			else cout << "Ïîìèëêà ïðè ââåäåíí³!\nÂâåä³òü ïîâòîðíî: ";
+			else cout << "ÃÃ®Ã¬Ã¨Ã«ÃªÃ  Ã¯Ã°Ã¨ Ã¢Ã¢Ã¥Ã¤Ã¥Ã­Ã­Â³!\nÃ‚Ã¢Ã¥Ã¤Â³Ã²Ã¼ Ã¯Ã®Ã¢Ã²Ã®Ã°Ã­Ã®: ";
 		}
 	}
 	void EncryptText(string& text)
@@ -39,18 +39,18 @@ protected:
 	}
 	void Registration()
 	{
-		cout << "Ðåºñòðàö³ÿ êîðèñòóâà÷à:\n1)Âàø ëîã³í ³ ïàðîëü ïîâèíåí ì³ñòèòè õî÷à á 1 âåëèêó ë³òåðó.\n2)Âàø ëîã³í ³ ïàðîëü ïîâèíåí ì³ñòèòè õî÷à á 3 öèôðè.\n3)Ëîã³í ³ ïàðîëü ïîâèíí³ áóòè ð³çíèìè.\n\n";
+		cout << "Ð ÐµÑ”ÑÑ‚Ñ€Ð°Ñ†Ñ–Ñ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°:\n1)Ð’Ð°Ñˆ Ð»Ð¾Ð³Ñ–Ð½ Ñ– Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¿Ð¾Ð²Ð¸Ð½ÐµÐ½ Ð¼Ñ–ÑÑ‚Ð¸Ñ‚Ð¸ Ñ…Ð¾Ñ‡Ð° Ð± 1 Ð²ÐµÐ»Ð¸ÐºÑƒ Ð»Ñ–Ñ‚ÐµÑ€Ñƒ.\n2)Ð’Ð°Ñˆ Ð»Ð¾Ð³Ñ–Ð½ Ñ– Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¿Ð¾Ð²Ð¸Ð½ÐµÐ½ Ð¼Ñ–ÑÑ‚Ð¸Ñ‚Ð¸ Ñ…Ð¾Ñ‡Ð° Ð± 3 Ñ†Ð¸Ñ„Ñ€Ð¸.\n3)Ð›Ð¾Ð³Ñ–Ð½ Ñ– Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¿Ð¾Ð²Ð¸Ð½Ð½Ñ– Ð±ÑƒÑ‚Ð¸ Ñ€Ñ–Ð·Ð½Ð¸Ð¼Ð¸.\n\n";
 
-		cout << "Ëîã³í: ";
+		cout << "Ð›Ð¾Ð³Ñ–Ð½: ";
 		CheckIsRight(login);
 
-		cout << "Ïàðîëü: ";
+		cout << "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ: ";
 		CheckIsRight(password);
 
 		isRegistered = true;
 
 		if (login == password) {
-			cout << "Ëîã³í ³ ïàðîëü ïîâèíí³ áóòè ð³çíèìè!\n\n";
+			cout << "Ð›Ð¾Ð³Ñ–Ð½ Ñ– Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð¿Ð¾Ð²Ð¸Ð½Ð½Ñ– Ð±ÑƒÑ‚Ð¸ Ñ€Ñ–Ð·Ð½Ð¸Ð¼Ð¸!\n\n";
 			Registration();
 			return;
 		}
@@ -58,7 +58,7 @@ protected:
 		EncryptText(login);
 		EncryptText(password);
 
-		cout << "\nÐåºñòðàö³ÿ ïðîéøëà óñï³øíî!\n\n";
+		cout << "\nÐ ÐµÑ”ÑÑ‚Ñ€Ð°Ñ†Ñ–Ñ Ð¿Ñ€Ð¾Ð¹ÑˆÐ»Ð° ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾!\n\n";
 		system("pause");
 		system("cls");
 	}
