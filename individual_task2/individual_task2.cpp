@@ -14,6 +14,10 @@ int main()
 	ilya.MathTest("..\\Tests\\Mathematics\\test1.txt");
 	Save("..\\reg_obj.txt", ilya);
 
+	Guest dima("pi", "aress", "+34772");
+	dima.MathTest("..\\Tests\\Mathematics\\test1.txt");
+	Save("..\\reg_obj.txt", dima);
+
 	Admin Dima("..\\reg_obj.txt");
 	Dima.show();
 

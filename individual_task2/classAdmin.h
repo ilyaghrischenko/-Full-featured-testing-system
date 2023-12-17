@@ -77,9 +77,19 @@ public:
 		users.emplace_back(obj);
 		Save("..\\reg_obj.txt", obj);
 	}
-	void DelUser()
+	void Statistics()
 	{
-
+		for (auto i = users.begin(); i != users.end(); ++i) {
+			cout << i->pib << ":\n";
+			for (auto j = i->grades.begin(); j != i->grades.end(); ++j) {
+				cout << j->first << ": ";
+				for (auto k = j->second.begin(); k != j->second.end(); ++k) {
+					cout << *k << " ";
+				}
+				cout << endl;
+			}
+			cout << "-----------------------\n";
+		}
 	}
 
 	friend ostream& operator<<(ostream& s, const Admin& obj)
